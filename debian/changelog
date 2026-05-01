@@ -1,3 +1,9 @@
+velora-launchpad (2.0.34.lingmo.1) unstable; urgency=medium
+
+  * new release for Lingmo OS.
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 01 May 2026 21:14:00 +0800
+
 dde-launchpad (2.0.33) unstable; urgency=medium
 
   * feat: set window title for launcher popup

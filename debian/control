@@ -1,7 +1,7 @@
-Source: dde-launchpad
-Section: DDE
+Source: velora-launchpad
+Section: lingmo
 Priority: optional
-Maintainer: Gary Wang <wangzichong@deepin.org>
+Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends:
  debhelper-compat (= 13),
  cmake,
@@ -28,6 +28,7 @@ Build-Depends:
  libappstreamqt-dev (>= 1.0.0)
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
+Homepage: https://github.com/LingmoOS/velora-launchpad
 
 Package: dde-launchpad
 Architecture: any
