@@ -226,9 +226,10 @@ QtObject {
                                                 Qt.rgba(235 / 255.0, 235 / 255.0, 235 / 255.0, windowedFrameWindow.blendColorAlpha(0.6)),
                                                 Qt.rgba(0, 0, 0, windowedFrameWindow.blendColorAlpha(85 / 255)))
                 }
+                // fix: 毛玻璃不可用时使用半透明回退色，避免显示为不透明灰色方块
                 return DStyle.Style.control.selectColor(undefined,
-                                            DStyle.Style.behindWindowBlur.lightNoBlurColor,
-                                            DStyle.Style.behindWindowBlur.darkNoBlurColor)
+                                            Qt.rgba(235 / 255.0, 235 / 255.0, 235 / 255.0, 0.92),
+                                            Qt.rgba(30 / 255.0, 30 / 255.0, 30 / 255.0, 0.92))
             }
         }
         InsideBoxBorder {
