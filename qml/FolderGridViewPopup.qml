@@ -266,11 +266,14 @@ Popup {
                             wheelFocusSink.forceActiveFocus()
                             let xDelta = wheel.angleDelta.x / 8
                             let yDelta = wheel.angleDelta.y / 8
+                            // fix: 使用 inverted 适配 KWin 自然滚动
+                            var effectiveDeltaX = wheel.inverted ? -xDelta : xDelta
+                            var effectiveDeltaY = wheel.inverted ? -yDelta : yDelta
                             let toPage = 0; // -1 prev, +1 next, 0 don't change
-                            if (yDelta !== 0) {
-                                toPage = (yDelta > 0) ? -1 : 1
-                            } else if (xDelta !== 0) {
-                                toPage = (xDelta > 0) ? 1 : -1
+                            if (effectiveDeltaY !== 0) {
+                                toPage = (effectiveDeltaY > 0) ? -1 : 1
+                            } else if (effectiveDeltaX !== 0) {
+                                toPage = (effectiveDeltaX > 0) ? 1 : -1
                             }
                             if (toPage < 0) {
                                 decrementPageIndex(folderPagesView)
