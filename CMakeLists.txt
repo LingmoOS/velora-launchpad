@@ -152,3 +152,4 @@ install(FILES ${CMAKE_SOURCE_DIR}/dist/deepin-log-config/org.deepin.dde.launchpa
     DESTINATION ${CMAKE_INSTALL_DATADIR}/deepin-log-viewer/deepin-log.conf.d)
 
 add_subdirectory(shell-launcher-applet)
+add_subdirectory(standalone-launcher)
