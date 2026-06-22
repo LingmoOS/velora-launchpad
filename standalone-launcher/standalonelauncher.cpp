@@ -1,6 +1,6 @@
 #include "standalonelauncher.h"
 #include "pluginfactory.h"
-#include "launchercontroller.h"
+#include "../launchercontroller.h"
 #include <blurhashimageprovider.h>
 
 #include <DDBusSender>
