@@ -153,8 +153,17 @@ QtObject {
 
     readonly property size windowedFrameSize: Qt.size(610, 480)
 
-    // update by caller.
+    // Set to true when an external caller (e.g. dock launcher item) sets windowedPos.
+    // When false, the windowed frame auto-centers above the dock via dock geometry.
+    property bool windowedPosSetByDock: false
+
+    // update by caller (e.g. dock launcher item).
     property point windowedPos: Qt.point(0, 0)
+
+    onWindowedPosChanged: {
+        if (!windowedPosSetByDock && (windowedPos.x !== 0 || windowedPos.y !== 0))
+            windowedPosSetByDock = true
+    }
     property var windowedFrame: ApplicationWindow {
         id: windowedFrameWindow
         objectName: "WindowedFrameApplicationWindow"
@@ -188,8 +197,16 @@ QtObject {
             if (Qt.LeftArrow === DesktopIntegration.dockPosition)
                 return descaledRect(DesktopIntegration.dockGeometry).width + DesktopIntegration.dockSpacing
             else if (Qt.UpArrow === DesktopIntegration.dockPosition || Qt.DownArrow === DesktopIntegration.dockPosition) {
-                let value = windowedPos.x - windowedFrameImpl.item.getHorizontalCoordinatesOfSideBar()
-                return Math.max(value, DesktopIntegration.dockSpacing)
+                if (windowedPosSetByDock) {
+                    // Align sidebar center with the dock icon position
+                    let value = windowedPos.x - windowedFrameImpl.item.getHorizontalCoordinatesOfSideBar()
+                    return Math.max(value, DesktopIntegration.dockSpacing)
+                }
+                // No dock item position: center above the dock
+                var dockGeo = descaledRect(DesktopIntegration.dockGeometry)
+                var dockCenterX = dockGeo.x + dockGeo.width / 2
+                var leftEdge = dockCenterX - windowedFrameSize.width / 2
+                return Math.max(leftEdge, DesktopIntegration.dockSpacing)
             } else
                 return 0
         }
