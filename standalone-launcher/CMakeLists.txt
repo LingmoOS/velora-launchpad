@@ -14,5 +14,6 @@ ds_install_package(PACKAGE org.deepin.ds.launcher TARGET standalone-launcher)
 ds_handle_package_translation(
     PACKAGE org.deepin.ds.launcher
     QML_FILES
+    ${QML_FILES_NEED_TRANSLATION}
     ${CMAKE_CURRENT_LIST_DIR}/package/main.qml
 )
