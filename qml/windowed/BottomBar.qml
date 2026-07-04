@@ -22,6 +22,8 @@ Control {
 
     padding: 10
 
+    readonly property var shutdownApplet: DS.applet("org.deepin.ds.dde-shutdown")
+
     contentItem: RowLayout {
         ToolButton {
             id: shutdownBtn
@@ -34,11 +36,15 @@ Control {
             ToolTip.text: qsTr("Power")
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             onClicked: {
-                var shutdown = DS.applet("org.deepin.ds.dde-shutdown")
-                if (shutdown) {
-                    shutdown.requestShutdown()
+                if (shutdownApplet) {
+                    shutdownApplet.requestShutdown()
                 } else {
-                    console.warn("shutdown applet not found")
+                    var retry = DS.applet("org.deepin.ds.dde-shutdown")
+                    if (retry) {
+                        retry.requestShutdown()
+                    } else {
+                        console.warn("shutdown applet not found")
+                    }
                 }
             }
         }
