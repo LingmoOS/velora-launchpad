@@ -1,4 +1,4 @@
-Source: velora-launchpad
+Source: lingmo-launchpad
 Section: lingmo
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
@@ -24,22 +24,22 @@ Build-Depends:
 # v-- provides DHiDPIHelper
  libdtk6gui-dev (>= 6.0.19),
  libdtk6declarative-dev (>> 6.7.33),
- libdde-shell-dev (>= 0.0.10),
+ liblingmo-shell-dev (>= 0.0.10),
  libappstreamqt-dev (>= 1.0.0)
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
-Homepage: https://github.com/LingmoOS/velora-launchpad
+Homepage: https://github.com/LingmoOS/lingmo-launchpad
 
-Package: dde-launchpad
+Package: lingmo-launchpad
 Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- dde-application-manager (>> 1.2.2),
- dde-application-wizard-daemon-compat,
+ lingmo-application-manager (>> 1.2.2),
+ lingmo-application-wizard-daemon-compat,
  libdtk6gui(>= 6.0.19),
  libdtk6declarative(>= 6.0.19),
- dde-shell(>> 2.0.33),
+ lingmo-shell(>> 2.0.33),
  qml6-module-qtquick-layouts,
  qml6-module-qtquick-window,
  qml6-module-qtquick-controls,

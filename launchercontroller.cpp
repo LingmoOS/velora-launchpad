@@ -218,7 +218,7 @@ void LauncherController::showHelp()
     QString helpTitle = "启动器";
     
     const QString &dmanInterface = "com.deepin.Manual.Open";
-    QDBusMessage message = QDBusMessage::createMethodCall(dmanInterface, "/com/deepin/Manual/Open", dmanInterface, "OpenTitle");
+    QDBusMessage message = QDBusMessage::createMethodCall(dmanInterface, "/com/lingmo/Manual/Open", dmanInterface, "OpenTitle");
     message << "dde" << helpTitle;
     QDBusConnection::sessionBus().asyncCall(message);
 }

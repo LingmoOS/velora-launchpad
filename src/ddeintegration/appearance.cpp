@@ -21,7 +21,7 @@ using Appearance1 = __Appearance1;
 
 Appearance::Appearance(QObject *parent)
     : QObject(parent)
-    , m_dbusAppearanceIface(new Appearance1(Appearance1::staticInterfaceName(), "/org/deepin/dde/Appearance1",
+    , m_dbusAppearanceIface(new Appearance1(Appearance1::staticInterfaceName(), "/org/lingmo/Appearance1",
                                             QDBusConnection::sessionBus(), this))
     , m_wallpaperBlurhash("L35?hb%#0ADeorNFVuy501Me?*%o")
 {

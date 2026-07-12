@@ -18,7 +18,7 @@ DCORE_USE_NAMESPACE
 
 AppWiz::AppWiz(QObject *parent)
     : QObject(parent)
-    , m_dbusDaemonLauncherIface(new DaemonLauncher1(DaemonLauncher1::staticInterfaceName(), "/org/deepin/dde/daemon/Launcher1",
+    , m_dbusDaemonLauncherIface(new DaemonLauncher1(DaemonLauncher1::staticInterfaceName(), "/org/lingmo/daemon/Launcher1",
                                                     QDBusConnection::sessionBus(), this))
 {
     qCDebug(logDdeIntegration) << "Initializing AppWiz";

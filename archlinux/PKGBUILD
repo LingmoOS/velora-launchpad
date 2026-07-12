@@ -2,12 +2,12 @@
 pkgname=deepin-launchpad-git
 pkgver=0.5.0
 pkgrel=1
-sourcename=dde-launchpad
+sourcename=lingmo-launchpad
 sourcetars=("$sourcename"_"$pkgver".tar.xz)
 sourcedir="$sourcename"
 pkgdesc='Deepin desktop-environment - Launchpad module'
 arch=('x86_64' 'aarch64')
-url="https://github.com/linuxdeepin/dde-launchpad"
+url="https://github.com/linuxdeepin/lingmo-launchpad"
 license=('GPL3')
 depends=('qt6-svg' 'qt6-declarative' 'appstream-qt'
          'dtk6declarative-git' 'dtk6gui-git' 'dtk6widget-git' 'dtk6core-git'

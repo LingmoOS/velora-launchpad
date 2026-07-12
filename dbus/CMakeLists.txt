@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: CC0-1.0
 
 configure_file(
-    org.deepin.dde.Launcher1.service.in
-    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.Launcher1.service
+    org.lingmo.Launcher1.service.in
+    ${CMAKE_CURRENT_BINARY_DIR}/org.lingmo.Launcher1.service
     @ONLY)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.Launcher1.service
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.lingmo.Launcher1.service
         DESTINATION ${CMAKE_INSTALL_DATADIR}/dbus-1/services)

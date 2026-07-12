@@ -1,4 +1,4 @@
-<interface name="org.deepin.dde.daemon.Launcher1">
+<interface name="org.lingmo.daemon.Launcher1">
   <method name="RequestUninstall">
     <arg direction="in" type="s" name="desktop"/>
     <arg direction="in" type="b" name="skipPreinstallHook"/>

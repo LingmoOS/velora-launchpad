@@ -15,7 +15,7 @@ using Dock1 = __Dock1;
 
 DdeDock::DdeDock(QObject *parent)
     : QObject(parent)
-    , m_dbusDaemonDockIface(new Dock1(Dock1::staticInterfaceName(), "/org/deepin/dde/daemon/Dock1",
+    , m_dbusDaemonDockIface(new Dock1(Dock1::staticInterfaceName(), "/org/lingmo/daemon/Dock1",
                                       QDBusConnection::sessionBus(), this))
     , m_direction(Qt::DownArrow)
     , m_rect(QRect(-1, -1, 0, 0))

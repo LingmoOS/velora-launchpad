@@ -3,6 +3,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 [D-BUS Service]
-Name=org.deepin.dde.Launcher1
+Name=org.lingmo.Launcher1
 Exec=@CMAKE_INSTALL_FULL_BINDIR@/dde-launchpad
-SystemdService=org.deepin.dde.Launcher1.service
+SystemdService=org.lingmo.Launcher1.service

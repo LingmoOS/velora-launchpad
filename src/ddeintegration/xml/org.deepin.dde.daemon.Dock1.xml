@@ -1,4 +1,4 @@
-<interface name="org.deepin.dde.daemon.Dock1">
+<interface name="org.lingmo.daemon.Dock1">
   <method name="ActivateWindow">
     <arg type="u" direction="in"/>
   </method>

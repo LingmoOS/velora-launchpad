@@ -8,5 +8,5 @@ Description=DDE launchpad background service
 [Service]
 ExecStart=@CMAKE_INSTALL_FULL_BINDIR@/dde-launchpad
 Type=dbus
-BusName=org.deepin.dde.Launcher1
+BusName=org.lingmo.Launcher1
 Slice=session.slice

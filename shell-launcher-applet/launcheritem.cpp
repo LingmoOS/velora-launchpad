@@ -34,8 +34,8 @@ bool LauncherItem::init()
     DQmlEngine().engine()->addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
-    if (!connection.registerService(QStringLiteral("org.deepin.dde.Launcher1")) ||
-        !connection.registerObject(QStringLiteral("/org/deepin/dde/Launcher1"), &LauncherController::instance())) {
+    if (!connection.registerService(QStringLiteral("org.lingmo.Launcher1")) ||
+        !connection.registerObject(QStringLiteral("/org/lingmo/Launcher1"), &LauncherController::instance())) {
         qCWarning(logApplet) << "Register D-Bus service failed";
     } 
     qCInfo(logApplet) << "LauncherItem initialization completed";
