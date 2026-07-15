@@ -1,3 +1,9 @@
+lingmo-launchpad (2.1.5.lingmo.1) unstable; urgency=medium
+
+  * Lingmo namespace migration.
+
+ -- Lingmo OS Team <team@lingmo.org>  Wed, 15 Jul 2026 13:32:00 +0800
+
 lingmo-launchpad (2.1.4.lingmo.1) unstable; urgency=medium
 
   * Lingmo namespace migration.
