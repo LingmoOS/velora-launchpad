@@ -62,7 +62,7 @@ AppletItem {
     function updateLaunchpadPos()
     {
         updateItemPos()
-        var launchpad = DS.applet("org.deepin.ds.launchpad")
+        var launchpad = DS.applet("org.deepin.ds.launcher")
         if (!launchpad || !launchpad.rootObject)
             return
 

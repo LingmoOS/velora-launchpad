@@ -202,8 +202,12 @@ QtObject {
                     let value = windowedPos.x - windowedFrameImpl.item.getHorizontalCoordinatesOfSideBar()
                     return Math.max(value, DesktopIntegration.dockSpacing)
                 }
-                // No dock item position: center above the dock
                 var dockGeo = descaledRect(DesktopIntegration.dockGeometry)
+                // 高效模式下任务栏是贴在屏幕边上的窄条，但它的窗口矩形通常仍是整宽，
+                // 按窗口中心居中会把启动台摆到屏幕正中；此时改为与任务栏左端对齐。
+                if (DesktopIntegration.dockIsEfficientMode)
+                    return Math.max(dockGeo.x + DesktopIntegration.dockSpacing, DesktopIntegration.dockSpacing)
+                // No dock item position: center above the dock
                 var dockCenterX = dockGeo.x + dockGeo.width / 2
                 var leftEdge = dockCenterX - windowedFrameSize.width / 2
                 return Math.max(leftEdge, DesktopIntegration.dockSpacing)

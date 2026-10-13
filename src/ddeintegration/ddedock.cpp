@@ -21,10 +21,12 @@ DdeDock::DdeDock(QObject *parent)
     , m_rect(QRect(-1, -1, 0, 0))
 {
     QTimer::singleShot(0, this, &DdeDock::updateDockRectAndPositionFromDBus);
+    QTimer::singleShot(0, this, &DdeDock::updateDockDisplayModeFromDBus);
 
     // Due to current dde-dock bug, we need to do both since position changed signal might not got emit in some case.
     connect(m_dbusDaemonDockIface, &Dock1::PositionChanged, this, &DdeDock::updateDockRectAndPositionFromDBus);
     connect(m_dbusDaemonDockIface, &Dock1::FrontendWindowRectChanged, this, &DdeDock::updateDockRectAndPositionFromDBus);
+    connect(m_dbusDaemonDockIface, &Dock1::DisplayModeChanged, this, &DdeDock::updateDockDisplayModeFromDBus);
     qCInfo(logDdeIntegration) << "DdeDock initialized with signals connected";
 }
 
@@ -41,6 +43,11 @@ Qt::ArrowType DdeDock::direction() const
 QRect DdeDock::geometry() const
 {
     return m_rect;
+}
+
+int DdeDock::displayMode() const
+{
+    return m_displayMode;
 }
 
 bool DdeDock::isDocked(const QString &desktop) const
@@ -117,4 +124,16 @@ void DdeDock::updateDockRectFromDBus()
     m_rect = m_dbusDaemonDockIface->frontendWindowRect();
     qCInfo(logDdeIntegration) << "Updated dock rect from D-Bus:" << m_rect;
     emit geometryChanged();
+}
+
+void DdeDock::updateDockDisplayModeFromDBus()
+{
+    const int mode = m_dbusDaemonDockIface->displayMode();
+    if (mode == m_displayMode) {
+        return;
+    }
+
+    m_displayMode = mode;
+    qCInfo(logDdeIntegration) << "Dock display mode changed to" << mode;
+    emit displayModeChanged();
 }

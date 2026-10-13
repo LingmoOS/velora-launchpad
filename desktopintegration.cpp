@@ -140,6 +140,11 @@ uint DesktopIntegration::dockSpacing() const
     return 10;
 }
 
+bool DesktopIntegration::dockIsEfficientMode() const
+{
+    return m_dockIntegration->displayMode() == DdeDock::DisplayMode::Efficient;
+}
+
 QString DesktopIntegration::backgroundUrl() const
 {
     return QString("image://blurhash/%1").arg(m_appearanceIntegration->wallpaperBlurhash());
@@ -261,6 +266,7 @@ DesktopIntegration::DesktopIntegration(QObject *parent)
 
     connect(m_dockIntegration, &DdeDock::directionChanged, this, &DesktopIntegration::dockPositionChanged);
     connect(m_dockIntegration, &DdeDock::geometryChanged, this, &DesktopIntegration::dockGeometryChanged);
+    connect(m_dockIntegration, &DdeDock::displayModeChanged, this, &DesktopIntegration::dockIsEfficientModeChanged);
     connect(m_appearanceIntegration, &Appearance::wallpaperBlurhashChanged, this, &DesktopIntegration::backgroundUrlChanged);
     connect(m_appearanceIntegration, &Appearance::opacityChanged, this, &DesktopIntegration::opacityChanged);
 }

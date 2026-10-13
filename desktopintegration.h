@@ -19,6 +19,7 @@ class DesktopIntegration : public QObject
     Q_PROPERTY(Qt::ArrowType dockPosition READ dockPosition NOTIFY dockPositionChanged)
     Q_PROPERTY(QRect dockGeometry READ dockGeometry NOTIFY dockGeometryChanged)
     Q_PROPERTY(uint dockSpacing READ dockSpacing NOTIFY dockSpacingChanged)
+    Q_PROPERTY(bool dockIsEfficientMode READ dockIsEfficientMode NOTIFY dockIsEfficientModeChanged)
     Q_PROPERTY(QString backgroundUrl READ backgroundUrl NOTIFY backgroundUrlChanged)
     Q_PROPERTY(qreal opacity READ opacity NOTIFY opacityChanged FINAL)
     Q_PROPERTY(double scaleFactor READ scaleFactor NOTIFY scaleFactorChanged FINAL)
@@ -56,6 +57,8 @@ public:
     Qt::ArrowType dockPosition() const;
     QRect dockGeometry() const;
     uint dockSpacing() const;
+    // 高效模式下任务栏是贴边的窄条，窗口化启动台需要与它左端对齐而不是居中
+    bool dockIsEfficientMode() const;
     QString backgroundUrl() const;
 
     Q_INVOKABLE bool isDockedApp(const QString & desktopId) const;
@@ -77,6 +80,7 @@ signals:
     void dockPositionChanged();
     void dockGeometryChanged();
     void dockSpacingChanged();
+    void dockIsEfficientModeChanged();
     void backgroundUrlChanged();
     void opacityChanged();
     void scaleFactorChanged();
